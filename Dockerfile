@@ -5,7 +5,8 @@ RUN apt-get update -y
 RUN apt-get install wget -y
 
 RUN wget http://dynamodb-local.s3-website-us-west-2.amazonaws.com/dynamodb_local_latest -O dynamo.tar.gz
-RUN tar xvzf dynamo.tar.gz && mv dynamodb_local_* dynamodb_local
+RUN mkdir dynamodb_local
+RUN tar xvzf dynamo.tar.gz -C ./dynamodb_local && rm -f dynamo.tar.gz
 
 EXPOSE 8000
 
